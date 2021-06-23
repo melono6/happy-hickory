@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Disallow: /
+
+# Host
+Host: https://playincluded.com
+
+# Sitemaps
+Sitemap: https://playincluded.com/sitemap.xml

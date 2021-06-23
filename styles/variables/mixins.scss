@@ -1,0 +1,42 @@
+@mixin hyperlink-initial-state($color) {
+  color: $color;
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
+
+  &::after {
+    background-color: $color;
+    bottom: -0.5rem;
+    content: "";
+    height: 0.1rem;
+    left: 0;
+    position: absolute;
+    right: 0;
+    transition: all 0.3s ease-in-out;
+    visibility: hidden;
+    width: 0;
+  }
+}
+
+@mixin hyperlink-state($color) {
+  @include hyperlink-initial-state($color);
+
+  &:hover,
+  &:focus {
+    outline: none;
+
+    &::after {
+      visibility: visible;
+      width: 100%;
+    }
+  }
+}
+
+@mixin hyperlink-state-active($color) {
+  outline: none;
+
+  &::after {
+    visibility: visible;
+    width: 100%;
+  }
+}

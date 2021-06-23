@@ -1,0 +1,28 @@
+@import "../../styles/variables.scss";
+
+.Wrapper {
+  margin-bottom: 2rem;
+  border-bottom: 0.1rem solid $white;
+  padding-bottom: 2rem;
+
+  @include media(">mobile") {
+    margin-bottom: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  &:last-of-type {
+    margin-bottom: 0;
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+}
+
+.Title {
+  padding: 0.6rem 1.2rem;
+  background-color: $play-peach;
+  color: $white;
+  display: inline-flex;
+  border-radius: 0.6rem;
+  margin-bottom: 2rem;
+  font-size: 1.6rem;
+}

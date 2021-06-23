@@ -1,0 +1,48 @@
+@import "../../styles/variables.scss";
+
+.Wrapper {
+  height: 100vh;
+}
+
+.HoldingPageWrapper {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  height: 100%;
+  align-items: center;
+  flex-direction: column;
+}
+
+.Header {
+  width: 100%;
+  text-align: center;
+}
+
+.Title {
+  padding: 0 2rem;
+}
+
+.Logo {
+  width: 100%;
+  margin-bottom: 5rem;
+}
+
+.LogoWrapper {
+  width: 10rem;
+  height: 5.4rem;
+  margin: auto;
+
+  @include media(">=only-desktop") {
+    width: 19.5rem;
+    height: 10.5rem;
+  }
+
+  svg {
+    width: 100%;
+    height: 100%;
+
+    path {
+      fill: $play-red;
+    }
+  }
+}

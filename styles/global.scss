@@ -1,0 +1,26 @@
+@import "./reset.scss";
+@import "./typography.scss";
+@import "./print.scss";
+
+html {
+  background-color: $grey-01;
+  max-width: 100%;
+  font-size: 10px;
+}
+
+button {
+  cursor: pointer;
+  transition: transform 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform: translateY(0);
+
+  &:hover {
+    box-shadow: 0 0.3rem 0 0 change-color($accessible-focus, $alpha: 0.3);
+    transform: translateY(-0.3rem);
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 0.3rem $accessible-focus;
+    outline: none;
+    transform: translateY(0);
+  }
+}

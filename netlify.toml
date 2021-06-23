@@ -1,0 +1,70 @@
+[build]
+
+
+
+
+
+[[redirects]]
+  from = "https://playincluded.co.uk/"
+  to = "https://playincluded.com/"
+  status = 301
+  force = true
+[[redirects]]
+  from = "https://playincluded.co.uk/*"
+  to = "https://playincluded.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://playincluded.co/"
+  to = "https://playincluded.com/"
+  status = 301
+  force = true
+[[redirects]]
+  from = "https://playincluded.co/*"
+  to = "https://playincluded.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://play-included.com/"
+  to = "https://playincluded.com/"
+  status = 301
+  force = true
+[[redirects]]
+  from = "https://play-included.com/*"
+  to = "https://playincluded.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://play-included.co.uk/"
+  to = "https://playincluded.com/"
+  status = 301
+  force = true
+[[redirects]]
+  from = "https://play-included.co.uk/*"
+  to = "https://playincluded.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://play-included.netlify.app/"
+  to = "https://playincluded.com/"
+  status = 301
+  force = true
+[[redirects]]
+  from = "https://play-included.netlify.app/*"
+  to = "https://playincluded.com/:splat"
+  status = 301
+  force = true
+[[redirects]]
+  from = "https://play-included.netlify.app/"
+  to = "https://playincluded.com/"
+  status = 301
+  force = true
+[[redirects]]
+  from = "https://play-included.netlify.app/*"
+  to = "https://playincluded.com/:splat"
+  status = 301
+  force = true

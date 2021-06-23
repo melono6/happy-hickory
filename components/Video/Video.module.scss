@@ -1,0 +1,105 @@
+@import "../../styles/variables.scss";
+
+.Wrapper {
+  max-width: $desktop-max-component-width;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 5rem;
+}
+
+.PlayWrapper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  background-color: $play-black;
+
+  img {
+    opacity: 0.3;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    background-color: change-color($play-black, $alpha: 0.3);
+    pointer-events: none;
+  }
+
+  &--Hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+.Image {
+  width: 100%;
+  height: 100%;
+}
+
+.PlayButtonWrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.PlayButton {
+  appearance: none;
+  background-color: $play-black;
+  border-radius: 9999rem;
+  border: none;
+  width: 5.6rem;
+  height: 5.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease-in-out;
+
+  &:hover,
+  &:focus {
+    background-color: $play-green;
+  }
+
+  @include media(">tablet") {
+    width: 12rem;
+    height: 12rem;
+  }
+}
+
+.PlayIcon {
+  width: 0;
+  height: 0;
+  margin-left: 0.6rem;
+  border-top: 1.2rem solid change-color($white, $alpha: 0);
+  border-bottom: 1.2rem solid change-color($white, $alpha: 0);
+  border-left: 1.4rem solid $grey-01;
+  pointer-events: none;
+
+  @include media(">tablet") {
+    border-top-width: 2.5rem;
+    border-bottom-width: 2.5rem;
+    border-left-width: 3rem;
+    margin-left: 1.2rem;
+  }
+}
+
+.Player {
+  opacity: 0;
+
+  &--Visible {
+    opacity: 1;
+  }
+}

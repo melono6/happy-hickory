@@ -1,0 +1,312 @@
+stackbitVersion: ~0.3.0
+ssgName: nextjs
+ssgVersion: 10.0.7
+cmsName: contentful
+nodeVersion: 12.20.0
+buildCommand: npm run build
+publishDir: out
+import:
+  type: contentful
+  contentFile: export.json
+  spaceIdEnvVar: CONTENTFUL_SPACE_ID
+  accessTokenEnvVar: CONTENTFUL_ACCESS_TOKEN
+models:
+  content:
+    type: page
+    label: Content Page
+    fields:
+      - type: string
+        name: title
+        label: Reference Title
+        description: 'title to reference page in content'
+        required: true
+      - type: slug
+        name: slug
+        label: Slug
+        description: 'url of page'
+      - type: model
+        name: meta_data
+        label: meta_data
+        description: 'meta_data object for page'
+        models: 
+          - meta_data
+      - type: list
+        name: heropage_introduction
+        label: Hero & page introduction
+        description: Hero components
+        items: 
+          type: model
+          models: 
+           - page_introduction
+           - hero_banner
+      - type: list
+        name: body
+        label: Body
+        description: Body components
+        items: 
+          type: model
+          models: 
+           - download_print_content
+           - embed
+           - page_promo
+           - rich_text
+           - section_heading
+           - section_introduction
+           - spacer
+           - video_player
+  download_print_content:
+    type: object
+    label: Download / Print
+    fields:
+      - type: string
+        name: title
+        label: Title
+      - type: image
+        name: asset
+        label: Asset
+  embed:
+    type: object
+    label: Embed
+    fields:
+      - type: string
+        name: title
+        label: Title
+      - type: string
+        name: embedCode
+        label: Embed Code
+  hero_banner:
+    type: object
+    label: Hero Banner
+    fields:
+      - type: string
+        name: referenceTitle
+        label: Reference Title
+      - type: enum
+        name: componentAlignment
+        label: componentAlignment
+        options:
+          - label: Image left, text right
+            value: Image left, text right
+          - label: Full Width
+            value: Full width image
+      - type: string
+        name: title
+        label: Title
+      - type: string
+        name: copy
+        label: Copy
+      - type: enum
+        name: imageOverlayType
+        label: imageOverlayType
+        options:
+          - label: Brick pattern 1
+            value: Brick pattern 1
+          - label: Brick pattern 2
+            value: Brick pattern 2
+      - type: enum
+        name: imageOverlayPosition
+        label: imageOverlayPosition
+        options:
+          - label: Left
+            value: Left
+          - label: Right
+            value: Right
+      - type: image
+        name: image
+        label: Image
+      - type: model
+        name: cta
+        label: CTA
+        models:
+          - cta
+  cta:
+    type: object
+    label: CTA
+    fields:
+      - type: string
+        name: referenceTitle
+        label: Reference Title
+      - type: string
+        name: ctaText
+        label: CTA text
+      - type: enum
+        name: linkType
+        label: CTA text
+        options:
+          - label: Internal link
+            value: Internal link
+          - label: Media attachment
+            value: Media attachment
+          - label: External link
+            value: External link
+      # - type: model
+      #   name: ctaLink
+      #   label: CTA link
+      #   models:
+      #     - content
+      #     - formPage
+      #     - landingPage
+      - type: image
+        name: mediaLink
+        label: Media link
+      - type: string
+        name: externalLink
+        label: External link
+  rich_text:
+    type: object
+    label: Rich Text
+    fields:
+      - type: string
+        name: referenceTitle
+        label: Reference Title
+      - type: markdown
+        name: rich_text
+        label: Rich text
+      - type: boolean
+        name: isPrintable
+        label: Is printable?
+  section_heading: 
+    type: object
+    label: Section Heading
+    fields:
+      - type: string
+        name: title
+        label: Title
+      - type: boolean
+        name: isPrintable
+        label: Is printable?
+  section_introduction: 
+    type: object
+    label: Section Intro
+    fields:
+      - type: string
+        name: referenceTitle
+        label: Reference Title
+      - type: string
+        name: title
+        label: Title
+      - type: string
+        name: subHeading
+        label: Subheading
+      - type: string
+        name: copy
+        label: Copy
+      - type: boolean
+        name: isPrintable
+        label: Is printable?
+  spacer: 
+    type: object
+    label: Spacer
+    fields:
+      - type: enum
+        name: imageType
+        options: 
+          - label: Dots1
+            value: Dots1
+          - label: Dots2
+            value: Dots2
+          - label: Dots3
+            value: Dots3
+          - label: Dots4
+            value: Dots4
+          - label: Bricks4
+            value: Bricks4
+          - label: Bricks6
+            value: Bricks6
+      - type: enum
+        name: imagePosition
+        label: imagePosition
+        options:
+          - label: Left
+            value: Left
+          - label: Right
+            value: Right
+          - label: Center
+            value: Center
+      - type: enum
+        name: imageColour
+        label: imageColour
+        options:
+          - label: Red
+            value: Red
+          - label: Blue
+            value: Blue
+          - label: Green
+            value: Green
+          - label: Peach
+            value: Peach
+  video_player: 
+    type: object
+    label: Video Player
+    fields:
+      - type: string
+        name: referenceTitle
+        label: Reference Title
+      - type: string
+        name: videoUrl
+        label: Video Url
+      - type: image
+        name: preLoadImage
+        label: Preload Image
+  meta_data: 
+    type: object
+    label: meta_data
+    fields:
+      - type: string
+        name: title
+        label: Title
+      - type: string
+        name: description
+        label: Description
+      - type: image
+        name: image
+        label: Image
+  page_introduction: 
+    type: object
+    label: page_introduction
+    fields:
+      - type: string
+        name: referenceTitle
+        label: Reference Title
+      - type: string
+        name: title
+        label: Title
+      - type: string
+        name: subheading
+        label: subheading
+      - type: string
+        name: copy
+        label: copy
+      - type: boolean
+        name: isPrintable
+        label: Is printable?
+  page_promo: 
+    type: object
+    label:  page_promo
+    fields:
+      - type: string
+        name: referenceTitle
+        label: Reference Title
+      - type: string
+        name: categoryShortTitle
+        label: Category / short title
+      - type: string
+        name: title
+        label: Title
+      - type: enum
+        name: backgroundColour
+        label: backgroundColour
+        options:
+          - label: Red
+            value: Red
+          - label: Blue
+            value: Blue
+          - label: Green
+            value: Green
+          - label: Peach
+            value: Peach
+      - type: model
+        name: ctas
+        label: CTA(s)
+        models:
+          - cta

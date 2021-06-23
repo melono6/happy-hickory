@@ -1,0 +1,145 @@
+@import "../../styles/variables.scss";
+
+.CookieBanner {
+  background-color: $play-yellow;
+  bottom: 0;
+  opacity: 0;
+  padding: 2rem $mobile-padding 2.5rem;
+  position: fixed;
+  transform: translateY(100%);
+  transition: opacity 0.3s, transform 0.3s;
+  width: 100%;
+  z-index: 999999;
+}
+
+.CookieBanner--show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.Inner {
+  margin: 0 auto;
+  max-width: $desktop-component-width;
+
+  @include media(">tablet") {
+    align-items: center;
+    display: flex;
+  }
+}
+
+.CopyWrapper {
+  @include media(">tablet") {
+    padding-right: 4rem;
+  }
+}
+
+.Title,
+.Information,
+.Policy {
+  font-size: 1.8rem;
+  font-weight: 500;
+  letter-spacing: -0.061rem;
+  line-height: 3.2rem;
+  margin-bottom: 1rem;
+}
+
+.Information {
+  @include media(">tablet") {
+    margin-bottom: 0;
+  }
+}
+
+.Policy {
+  a {
+    color: $play-black;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+    }
+  }
+}
+
+.Button {
+  align-items: center;
+  appearance: none;
+  background-color: transparent;
+  border: 0;
+  color: $play-black;
+  display: flex;
+  font-size: 1.6rem;
+  letter-spacing: -0.025rem;
+  line-height: 2.4rem;
+  min-width: 20rem;
+  padding: 0;
+  text-decoration: none;
+
+  &:hover {
+    box-shadow: none;
+    transform: none;
+  }
+
+  &:hover,
+  &:focus {
+    .ButtonStyleOne {
+      background-color: $white;
+    }
+
+    .ButtonText {
+      &::after {
+        visibility: visible;
+        width: 100%;
+      }
+    }
+
+    .Dot {
+      background-color: $play-black;
+    }
+  }
+}
+
+.ButtonText {
+  @include hyperlink-initial-state($play-black);
+}
+
+.ButtonStyleOne {
+  align-items: center;
+  border-radius: 9999rem;
+  background-color: $play-black;
+  display: inline-flex;
+  height: 5.6rem;
+  justify-content: center;
+  min-width: 5.6rem;
+  margin-right: 1.6rem;
+  width: 5.6rem;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.DotsWrapper {
+  display: flex;
+  flex-direction: column;
+  height: 2.4rem;
+  justify-content: space-between;
+  position: relative;
+  width: 1rem;
+}
+
+.Dot {
+  background-color: $white;
+  border-radius: 9999rem;
+  height: 0.4rem;
+  width: 0.4rem;
+
+  &:nth-child(1),
+  &:nth-child(5) {
+    margin-left: 0;
+  }
+  &:nth-child(2),
+  &:nth-child(4) {
+    margin-left: 0.4rem;
+  }
+  &:nth-child(3) {
+    margin-left: 0.8rem;
+  }
+}

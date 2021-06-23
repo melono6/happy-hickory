@@ -1,0 +1,14 @@
+@import "../../styles/variables.scss";
+
+.Wrapper {
+  margin-bottom: 5rem;
+
+  iframe {
+    max-width: 100%;
+  }
+}
+
+.EmbedWrapper {
+  display: flex;
+  justify-content: center;
+}

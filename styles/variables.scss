@@ -1,0 +1,12 @@
+@import "./variables/colors.scss";
+@import "./variables/media-queries.scss";
+@import "./variables/layout.scss";
+@import "./variables/fonts.scss";
+@import "./variables/mixins.scss";
+
+$grow-ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+$grow: 200ms #{$grow-ease};
+$snap-ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+$snap: 100ms #{$snap-ease};
+
+$heading-font-family: "Arial";

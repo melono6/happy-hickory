@@ -1,0 +1,335 @@
+@import "../../styles/variables.scss";
+
+$mobile-header-height: 9rem;
+$desktop-header-height: 16rem;
+
+.Wrapper {
+  box-shadow: 0 0.1rem 0.3rem 0 change-color($play-black, $alpha: 0.2);
+  height: $mobile-header-height;
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+
+  @include media(">=only-desktop") {
+    height: $desktop-header-height;
+  }
+}
+
+.LogoLink {
+  display: block;
+}
+
+.LogoWrapper {
+  width: 10rem;
+  height: 5.4rem;
+  margin-left: $mobile-padding;
+
+  @include media(">=only-desktop") {
+    width: 19.5rem;
+    height: 10.5rem;
+    margin-left: 0;
+  }
+
+  svg {
+    width: 100%;
+    height: 100%;
+
+    path {
+      fill: $play-red;
+    }
+  }
+
+  @include media(">=only-desktop") {
+    height: auto;
+  }
+}
+
+.Link {
+  color: $play-black;
+  font-size: 2rem;
+  letter-spacing: 0;
+  line-height: 3.2rem;
+  text-decoration: none;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  margin: 0 2rem;
+  border-bottom: 0.1rem solid $grey-02;
+  color: $play-black;
+
+  @include media(">=only-desktop") {
+    @include hyperlink-state($play-black);
+    font-size: 1.8rem;
+    padding-top: 0.6rem;
+    padding-bottom: 0.6rem;
+    margin-right: 1rem;
+    border-bottom: none;
+    letter-spacing: -0.06rem;
+    line-height: 1.6rem;
+
+    &:hover,
+    &:focus {
+      box-shadow: 0 0 0 0 change-color($white, $alpha: 0);
+      transform: translateY(0);
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  svg {
+    transform: rotate(0);
+    transition: transform 0.2s ease-in-out;
+  }
+
+  &--Open {
+    svg {
+      transform: rotate(180deg);
+    }
+  }
+
+  &--Login {
+    font-size: 1.6rem;
+
+    svg {
+      width: 1.3rem;
+
+      path {
+        fill: $play-black;
+      }
+    }
+  }
+}
+
+.LoginLink {
+  cursor: pointer;
+  color: $play-black;
+  font-size: 2.6rem;
+  letter-spacing: 0;
+  line-height: 3.2rem;
+  text-decoration: none;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  padding: 2rem 2.4rem;
+  margin: 0 2rem;
+  border-bottom: 0.1rem solid $grey-02;
+
+  @include media(">=only-desktop") {
+    display: block;
+    position: relative;
+    font-size: 1.8rem;
+    text-decoration: none;
+    color: $play-black;
+    padding: 2rem 2.4rem;
+    margin-left: 0;
+    margin-right: 0;
+    border-bottom: none;
+    letter-spacing: -0.06rem;
+    line-height: 1.6rem;
+    transition: background-color 0.2s ease-in-out;
+    border-bottom: 0.1rem solid change-color($play-black, $alpha: 0.1);
+
+    &:hover {
+      background-color: change-color($play-black, $alpha: 0.1);
+    }
+
+    svg {
+      width: 1rem;
+
+      path {
+        fill: $play-black;
+      }
+    }
+  }
+}
+
+.LoginButton {
+  display: none;
+  border: 0;
+  background: none;
+  margin-right: 0;
+
+  @include media(">=only-desktop") {
+    display: block;
+    font-size: 1.6rem;
+  }
+
+  &::after {
+    display: none;
+  }
+
+  span {
+    margin-right: 1rem;
+  }
+}
+
+.LoginDesktopContainer {
+  position: absolute;
+  top: 7rem;
+  background-color: $grey-01;
+  box-shadow: 0 0.1rem 0.3rem 0 change-color($play-black, $alpha: 0.3);
+  z-index: 1;
+}
+
+.LoginWrapper {
+  display: flex;
+  justify-content: flex-end;
+  position: fixed;
+  left: 0;
+  right: 0;
+  height: calc(100% - #{$mobile-header-height});
+  top: $mobile-header-height;
+  overflow: hidden;
+  transition: background-color 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  background-color: change-color($grey-01, $alpha: 0);
+  pointer-events: none;
+  opacity: 0;
+
+  &--Open {
+    background-color: $grey-01;
+    opacity: 1;
+  }
+
+  @include media(">=only-desktop") {
+    opacity: 1;
+    pointer-events: all;
+    position: static;
+    height: auto;
+    overflow: auto;
+    background-color: change-color($grey-01, $alpha: 0);
+  }
+}
+
+.LoginWrapperInner {
+  &--Open {
+    height: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  }
+
+  @include media(">=only-desktop") {
+    position: static;
+    height: 12rem;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+}
+
+.LoginNavigationText {
+  margin-right: 1rem;
+}
+
+.ActiveLink {
+  @include hyperlink-state-active($play-black);
+}
+
+.MobileMenuWrapper {
+  position: relative;
+}
+
+.MenuWrapper {
+  @include media("<desktop") {
+    position: absolute;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+  }
+
+  &--Open {
+    pointer-events: all;
+  }
+}
+
+.Navigation {
+  position: absolute;
+  background: $grey-01;
+  display: flex;
+  flex-direction: column;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  transition: transform 0.3s;
+  transform: translateX(100%);
+  height: 100%;
+
+  &--Open {
+    transform: translateX(0);
+    overflow: auto;
+  }
+
+  @include media(">=only-desktop") {
+    background: change-color($white, $alpha: 0);
+    position: static;
+    transform: none;
+    height: auto;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding-bottom: 0.5rem;
+  }
+}
+
+.MenuItem {
+  color: $play-black;
+  font-family: Atak;
+  font-size: 2.6rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 3.2rem;
+  text-decoration: none;
+  padding: 1.5rem 0;
+  margin: 0 2rem;
+  border-bottom: 0.1rem solid $grey-02;
+}
+
+.MenuIcon {
+  border: 0;
+  background: none;
+  height: 4.4rem;
+  width: 4.4rem;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0.5rem;
+
+  &:hover,
+  &:focus {
+    box-shadow: 0 0 0 0 change-color($white, $alpha: 0);
+    transform: translateY(0);
+  }
+
+  @include media(">=only-desktop") {
+    display: none;
+  }
+}
+
+.Skip {
+  left: -999px;
+  position: absolute;
+
+  &:active,
+  &:focus {
+    top: 0;
+    left: 0;
+    color: $play-green;
+    font-size: 1.6rem;
+    display: inline-block;
+    padding: 0.4rem;
+    border: 0.1rem solid $white;
+    white-space: nowrap;
+    text-align: center;
+    font-weight: 700;
+  }
+}

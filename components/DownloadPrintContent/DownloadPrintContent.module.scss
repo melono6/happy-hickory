@@ -1,0 +1,95 @@
+@import "../../styles/variables.scss";
+
+.Wrapper {
+  margin-bottom: 5rem;
+  padding-left: $mobile-padding;
+  padding-right: $mobile-padding;
+
+  @include media(">tablet") {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.Container {
+  display: flex;
+}
+
+.Button,
+.CTA {
+  align-items: center;
+  color: $play-black;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.6rem;
+  letter-spacing: -0.025rem;
+  line-height: 2.4rem;
+  margin-right: 4rem;
+  text-decoration: none;
+
+  @include media(">tablet") {
+    align-items: center;
+    flex-direction: row;
+  }
+
+  &:hover,
+  &:focus {
+    .ButtonStyleOne {
+      background-color: $play-green;
+    }
+
+    .Label {
+      &::after {
+        visibility: visible;
+        width: 100%;
+      }
+    }
+  }
+}
+
+.Button {
+  appearance: none;
+  background-color: transparent;
+  border: 0;
+  color: $play-black;
+  padding: 0;
+
+  &:hover {
+    box-shadow: none;
+    transform: none;
+  }
+}
+
+.ButtonStyleOne {
+  align-items: center;
+  border-radius: 9999rem;
+  background-color: $play-black;
+  display: inline-flex;
+  height: 5.6rem;
+  justify-content: center;
+  min-width: 5.6rem;
+  margin-right: 0;
+  width: 5.6rem;
+  transition: background-color 0.3s ease-in-out;
+
+  @include media(">tablet") {
+    margin-right: 1.6rem;
+  }
+}
+
+.IconWrapper {
+  position: relative;
+  height: 2.4rem;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.Label {
+  margin-top: 1.2rem;
+  @include hyperlink-initial-state($play-black);
+
+  @include media(">tablet") {
+    margin-top: 0;
+  }
+}

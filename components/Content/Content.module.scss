@@ -1,0 +1,11 @@
+@import "../../styles/variables.scss";
+
+.Header {
+  &__MarginTop {
+    margin-top: 1.9rem;
+
+    @include media(">tablet") {
+      margin-top: 7.1rem;
+    }
+  }
+}

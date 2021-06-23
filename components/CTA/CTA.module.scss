@@ -1,0 +1,89 @@
+@import "../../styles/variables.scss";
+
+.CTA {
+  font-size: 1.6rem;
+  letter-spacing: -0.025rem;
+  line-height: 2.4rem;
+  text-decoration: none;
+  color: $play-black;
+
+  &:hover,
+  &:focus {
+    .ButtonStyleOne {
+      background-color: $play-green;
+    }
+
+    .CTAText {
+      &::after {
+        visibility: visible;
+        width: 100%;
+      }
+    }
+  }
+}
+
+.CTAText {
+  @include hyperlink-initial-state($play-black);
+}
+
+.Primary {
+  display: flex;
+  align-items: center;
+}
+
+.ButtonStyleOne {
+  width: 5.6rem;
+  min-width: 5.6rem;
+  height: 5.6rem;
+  background-color: $play-black;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1.6rem;
+  border-radius: 9999rem;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.DotsWrapper {
+  position: relative;
+  height: 2.4rem;
+  width: 1rem;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.Dot {
+  background-color: $white;
+  border-radius: 9999rem;
+  width: 0.4rem;
+  height: 0.4rem;
+
+  &:nth-child(1),
+  &:nth-child(5) {
+    margin-left: 0;
+  }
+  &:nth-child(2),
+  &:nth-child(4) {
+    margin-left: 0.4rem;
+  }
+  &:nth-child(3) {
+    margin-left: 0.8rem;
+  }
+}
+
+.ExternalLinkIcon {
+  width: 1.6rem;
+  height: 1.6rem;
+  margin-left: 2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 1.6rem;
+  margin-bottom: 0.4rem;
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}

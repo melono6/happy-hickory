@@ -1,0 +1,105 @@
+@import "../../styles/variables.scss";
+
+.Wrapper {
+  margin-bottom: 5rem;
+  padding-left: $mobile-padding;
+  padding-right: $mobile-padding;
+
+  @include media(">tablet") {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  p {
+    line-height: 2.4rem;
+
+    @include media(">tablet") {
+      line-height: 3.2rem;
+    }
+  }
+
+  a {
+    border-bottom: 0.1rem solid transparent;
+    color: $play-green;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+
+    &:hover,
+    &:focus {
+      border-bottom: 0.1rem solid $play-green;
+      color: $play-black;
+    }
+  }
+
+  u {
+    border-bottom: 0.1rem solid $play-black;
+    text-decoration: none;
+  }
+
+  h1 {
+    margin-bottom: 2.4rem;
+
+    @include media(">tablet") {
+      margin-bottom: 1.2rem;
+    }
+  }
+  h2 {
+    margin-bottom: 1.6rem;
+
+    @include media(">tablet") {
+      margin-bottom: 0.7rem;
+    }
+  }
+  h3 {
+    margin-bottom: 1.1rem;
+
+    @include media(">tablet") {
+      margin-bottom: 0.7rem;
+    }
+  }
+
+  h4,
+  h5,
+  h6 {
+    margin-bottom: 0.9rem;
+
+    @include media(">tablet") {
+      margin-bottom: 0.3rem;
+    }
+  }
+
+  h6 {
+    font-weight: 500;
+    font-size: 1.8rem;
+    letter-spacing: -0rem;
+    line-height: 2.4rem;
+
+    @include media(">tablet") {
+      letter-spacing: -0.061rem;
+      line-height: 3.2rem;
+    }
+  }
+
+  ul,
+  ol {
+    margin-left: 1rem;
+    padding-left: 1rem;
+    margin-top: 0;
+
+    li {
+      margin-bottom: 0;
+
+      p {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  ul {
+    li {
+      &::marker {
+        font-size: 2rem;
+      }
+    }
+  }
+}

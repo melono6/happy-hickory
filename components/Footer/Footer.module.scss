@@ -1,0 +1,130 @@
+@import "../../styles/variables.scss";
+
+.Wrapper {
+  background-color: $play-black;
+  color: $white;
+  padding: 3rem $mobile-padding;
+
+  @include media(">tablet") {
+    padding: 8rem 0;
+  }
+}
+
+.ContactSection {
+  padding-bottom: 0;
+
+  @include media(">tablet") {
+    padding-bottom: 3rem;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+}
+
+.LogoWrapper {
+  height: 5.6rem;
+  width: 15.7rem;
+  min-width: 15.7rem;
+
+  @include media(">tablet") {
+    margin-right: 5rem;
+  }
+}
+
+.Item {
+  font-size: 1.6rem;
+  letter-spacing: -0.025rem;
+  line-height: 2.4rem;
+  margin-bottom: 1.6rem;
+  @include hyperlink-state($white);
+}
+
+.Info {
+  margin-left: 0;
+  margin-top: 1.8rem;
+  font-size: 1.3rem;
+  letter-spacing: -0.025rem;
+  line-height: 1.6rem;
+
+  @include media(">tablet") {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 1.4rem;
+    line-height: 2.4rem;
+  }
+}
+
+.Copyright {
+  margin-top: 2.7rem;
+
+  font-size: 1.3rem;
+  letter-spacing: -0.025rem;
+  line-height: 1.6rem;
+
+  @include media(">tablet") {
+    margin-top: 3.6rem;
+    font-size: 1.4rem;
+    line-height: 2.4rem;
+  }
+}
+
+.HygieneLinksWrapper {
+  width: 100%;
+
+  @include media(">tablet") {
+    max-width: 15rem;
+  }
+}
+
+.InfoContainer,
+.ItemsContainer {
+  display: flex;
+  flex-direction: column;
+
+  @include media(">tablet") {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+}
+
+.InfoContainer {
+  @include media(">tablet") {
+    align-items: center;
+  }
+}
+
+.SocialShareContainer {
+  display: flex;
+  margin-bottom: 3rem;
+  margin-top: 2.8rem;
+
+  @include media(">tablet") {
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+}
+
+.IconWrapper {
+  &:hover,
+  &:focus {
+    .Icon {
+      opacity: 0.5;
+    }
+  }
+}
+
+.Icon {
+  height: 3rem;
+  margin-right: 3rem;
+  opacity: 1;
+  transition: opacity 0.3s;
+  width: 3rem;
+}
+
+.ActiveLink {
+  opacity: 0.66;
+
+  &::after {
+    background-color: transparent;
+  }
+}
